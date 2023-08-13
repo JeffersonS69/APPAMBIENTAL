@@ -70,12 +70,9 @@ class UserVerificationView(APIView):
             if user_serializer.is_valid(raise_exception=False):
                 user_serializer.save()
 
-                return Response(status=200)
+                return Response("successful verification",status=200)
             
-        return Response(status=404)
-
-
-
+        return Response("Without Verification",status=404)
 
 
 class UserLoginView(APIView):
@@ -84,7 +81,7 @@ class UserLoginView(APIView):
         if request.user.is_authenticated == False or request.user.is_active == False:
             return Response("Invalid Credentials", status=403)
 
-        user = UserSerializer(request.data)
+        user = UserSerializer(request.user)
 
         return Response(user.data, status=200)
     
