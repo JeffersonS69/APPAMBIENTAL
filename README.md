@@ -13,4 +13,4 @@ librerías a instalar dentro del entorno virtual:
 * pip install psycopg2
 * pip install sendgrid
 # Frontend
-Solo utilice el comando npm intall
+Solo utilice el comando npm install
