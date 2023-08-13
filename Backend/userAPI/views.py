@@ -32,6 +32,7 @@ class UserView(APIView):
             salt = uuid.uuid4().hex
             hash_object = hashlib.sha256(salt.encode()+ str(user_serializer.data['id']).encode())
             token = hash_object.hexdigest()+':'+salt
+
             token_serializer = TokenSerializer(data={"user":user_serializer.data['id'], "token":token})
             if token_serializer.is_valid(raise_exception=True):
                 token_serializer.save()
@@ -59,12 +60,13 @@ class UserView(APIView):
 
 class UserVerificationView(APIView):
     def get(self, request, pk, format=None):
+        print("VERIFYING USER", pk)
 
         tokenObj= Token.objects.filter(token=pk).first()
         user = User.objects.filter(id=tokenObj.user.id).first()
         
         if user:
-            user_serializer = UserSerializer(data={'is_active': True}, partial=True)
+            user_serializer = UserSerializer(user, data={'is_active': True}, partial=True)
             if user_serializer.is_valid(raise_exception=False):
                 user_serializer.save()
 
@@ -88,7 +90,9 @@ class UserLoginView(APIView):
     
     def post(self, request, format=None):
         print("Login Class")
+
         user_obj = User.objects.filter(email = request.data['username']).first() or User.objects.filter(username=request.data['username']).first()
+        
         if user_obj is not None:
             credentials = {
                 'username': user_obj.username,
