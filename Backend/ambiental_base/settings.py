@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'disasterType',
     'Prevention',
     'Protocol',
+    'Contact',
 ]
 
 MIDDLEWARE = [

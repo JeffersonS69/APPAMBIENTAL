@@ -23,7 +23,8 @@ urlpatterns = [
     path('api/v1/app/', include('appSettings.urls')),
     path('api/v1/disaster/', include('disasterType.urls')),
     path('api/v1/prevention/', include('Prevention.urls')),
-    path('api/v1/action/', include('Protocol.urls'))
+    path('api/v1/action/', include('Protocol.urls')),
+    path('api/v1/emergency/', include('Contact.urls')),
 ]
 
 
