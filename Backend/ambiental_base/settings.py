@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'userAPI',
     'appSettings',
+    'disasterType',
 ]
 
 MIDDLEWARE = [
