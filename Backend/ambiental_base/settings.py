@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Prevention',
     'Protocol',
     'Contact',
+    'Shelter'
 ]
 
 MIDDLEWARE = [

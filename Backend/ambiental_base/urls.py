@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/v1/prevention/', include('Prevention.urls')),
     path('api/v1/action/', include('Protocol.urls')),
     path('api/v1/emergency/', include('Contact.urls')),
+    path('api/v1/shelter/', include('Shelter.urls')),
 ]
 
 
