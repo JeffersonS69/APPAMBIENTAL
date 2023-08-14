@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'appSettings',
     'disasterType',
     'Prevention',
+    'Protocol',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'ambiental_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ambientaldb',
+        'NAME': 'dbambiental',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

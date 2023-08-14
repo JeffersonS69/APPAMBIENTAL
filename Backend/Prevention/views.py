@@ -44,4 +44,4 @@ class PreventionMeasuresDetailView(APIView):
     def delete(self, request, pk, format=None):
         measures = self.get_object(pk)
         measures.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response("Deleted successfully",status=status.HTTP_204_NO_CONTENT)

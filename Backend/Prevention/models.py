@@ -10,4 +10,4 @@ class MeasurePrevention(models.Model):
 
 
     def __str__(self):
-        return self.description
+        return self.topic
