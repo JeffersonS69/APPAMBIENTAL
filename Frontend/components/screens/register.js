@@ -62,7 +62,9 @@ function Register({ navigation, route, props }) {
   return (
     <KeyboardAvoidingView
       style={containers(appSettings).outerPage}
-      contentContainerStyle={containers(appSettings).keyboardAwareInnerContainer}
+      contentContainerStyle={
+        containers(appSettings).keyboardAwareInnerContainer
+      }
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <View style={containers(appSettings).formBox}>

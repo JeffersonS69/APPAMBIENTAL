@@ -17,9 +17,9 @@ const containers = (appSettings) => StyleSheet.create({
 
     formBox: {
         width: "60%",
-        height: "60%",
+        height: "70%",
         backgroundColor: "#729aa6",
-        margin: 0,
+        margin: 2,
         borderRadius: 15,
         padding: "6%",
     },
