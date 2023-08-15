@@ -12,6 +12,14 @@ const buttons = (appSettings) => StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       borderRadius: 15,
+    },
+    register:{
+      height: 35,
+      backgroundColor: "#2d353f",
+      textAlign: "center",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: 15,
     }
 
 });

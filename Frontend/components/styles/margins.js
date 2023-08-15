@@ -6,6 +6,15 @@ export default StyleSheet.create({
     topTenPercent:{
         marginTop: "10%",
     },
+    topTenPercentButton:{
+        marginTop: "15%",
+    },
+    topTenPercentRegister:{
+        marginTop: "5%",
+    },
+    topTenPercent1:{
+        marginTop: "5%",
+    },
     top30Percent:{
         marginTop: "30%",
     },

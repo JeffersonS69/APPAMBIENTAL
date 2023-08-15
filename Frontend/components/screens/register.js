@@ -13,6 +13,16 @@ import fonts from "../styles/fonts.js";
 import inputs from "../styles/inputs.js";
 import margins from "../styles/margins.js";
 import buttons from "../styles/buttons.js";
+// import {
+//   Flex,
+//   Center,
+//   Heading,
+//   ScrollView,
+//   VStack,
+//   Divider,
+//   Box,
+//   NativeBaseProvider,
+// } from "native-base";
 
 function Register({ navigation, route, props }) {
   const globalContext = useContext(Context);
@@ -60,77 +70,95 @@ function Register({ navigation, route, props }) {
   }
 
   return (
-    <KeyboardAvoidingView
-      style={containers(appSettings).outerPage}
-      contentContainerStyle={
-        containers(appSettings).keyboardAwareInnerContainer
-      }
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <View style={containers(appSettings).formBox}>
-        <Text style={[fonts(appSettings).h1, margins.top30Percent]}>
-          Registro
-        </Text>
+    <>
+      <KeyboardAvoidingView
+        style={containers(appSettings).outerPage}
+        contentContainerStyle={
+          containers(appSettings).keyboardAwareInnerContainer
+        }
+      >
+        <View style={containers(appSettings).formBox}>
+          <Text style={[fonts(appSettings).h1, margins.top30Percent]}>
+            Registro
+          </Text>
 
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
-          Nombre
-        </Text>
-        <TextInput
-          value={firstname}
-          onChangeText={(text) => setFirstName(text)}
-          textContentType="name"
-          autoCompleteType="email"
-          style={inputs(appSettings).textInput}
-          placeholder="Nombre"
-        />
+          <Text
+            style={[
+              fonts(appSettings).inputLabel,
+              margins.topTenPercentRegister,
+            ]}
+          >
+            Nombre
+          </Text>
+          <TextInput
+            value={firstname}
+            onChangeText={(text) => setFirstName(text)}
+            textContentType="name"
+            autoCompleteType="email"
+            style={inputs(appSettings).textInput}
+            placeholder="Nombre"
+          />
+          <Text
+            style={[
+              fonts(appSettings).inputLabel,
+              margins.topTenPercentRegister,
+            ]}
+          >
+            Apellido
+          </Text>
+          <TextInput
+            value={lastname}
+            onChangeText={(text) => setLastName(text)}
+            textContentType="username"
+            autoCompleteType="email"
+            style={inputs(appSettings).textInput}
+            placeholder="Apellido"
+          />
 
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
-          Apellido
-        </Text>
-        <TextInput
-          value={lastname}
-          onChangeText={(text) => setLastName(text)}
-          textContentType="username"
-          autoCompleteType="email"
-          style={inputs(appSettings).textInput}
-          placeholder="Apellido"
-        />
+          <Text
+            style={[
+              fonts(appSettings).inputLabel,
+              margins.topTenPercentRegister,
+            ]}
+          >
+            Correo electrónico
+          </Text>
+          <TextInput
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+            textContentType="username"
+            autoCompleteType="email"
+            style={inputs(appSettings).textInput}
+            placeholder="Correo Electrónico"
+          />
 
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
-          Correo electrónico
-        </Text>
-        <TextInput
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          textContentType="username"
-          autoCompleteType="email"
-          style={inputs(appSettings).textInput}
-          placeholder="Correo Electrónico"
-        />
-
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
-          Contraseña
-        </Text>
-        <TextInput
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry={securePassword}
-          textContentType="password"
-          autoCompleteType="password"
-          style={inputs(appSettings).textInput}
-          placeholder="Contraseña"
-        />
-
-        <Text style={fonts(appSettings).errorLabel}>{error}</Text>
-
-        <TouchableOpacity
-          style={[buttons(appSettings).login]}
-          onPress={() => handleLogin()}
-        >
-          <Text style={{ color: "white" }}>Register</Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+          <Text
+            style={[
+              fonts(appSettings).inputLabel,
+              margins.topTenPercentRegister,
+            ]}
+          >
+            Contraseña
+          </Text>
+          <TextInput
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry={securePassword}
+            textContentType="password"
+            autoCompleteType="password"
+            style={inputs(appSettings).textInput}
+            placeholder="Contraseña"
+          />
+          <Text style={fonts(appSettings).errorLabel}>{error}</Text>
+          <TouchableOpacity
+            style={[buttons(appSettings).register, margins.topTenPercentButton]}
+            onPress={() => handleLogin()}
+          >
+            <Text style={{ color: "white" }}>Register</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+    </>
   );
 }
 

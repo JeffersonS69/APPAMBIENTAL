@@ -51,7 +51,6 @@ function Login({navigation, route, props}) {
 
   return (
     <View style={containers(appSettings).outerPage}>
-      <View style={containers(appSettings).formBox}>
         <Text style={[fonts(appSettings).h1, margins.top30Percent]}>LOGIN</Text>
 
         {(error)? <Text style={fonts(appSettings).errorLabel}>{error}</Text>:null}
@@ -67,8 +66,7 @@ function Login({navigation, route, props}) {
           style={inputs(appSettings).textInput}
           placeholder="Correo Electrónico"
         />
-
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
+        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent1]}>
           Contraseña
         </Text>
         <TextInput
@@ -80,15 +78,13 @@ function Login({navigation, route, props}) {
           style={inputs(appSettings).textInput}
           placeholder="Contraseña"
         />
-        
         <TouchableOpacity
-          style={[buttons(appSettings).login, margins.topTenPercent]}
+          style={[buttons(appSettings).login, margins.topTenPercentButton]}
           onPress={() => handleLogin()}
         >
           <Text style={{color: 'white'}}>Acceso</Text>
         </TouchableOpacity>
       </View>
-    </View>
   );
 }
 
