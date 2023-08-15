@@ -1,19 +1,19 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { Context, Provider } from './components/globalContext/globalContext.js';
-import Navigator from './components/navigation/navigator.js';
-import { View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { Context, Provider } from "./components/globalContext/globalContext.js";
+import Navigator from "./components/navigation/navigator.js";
+import { View } from "react-native";
 
 function App(props) {
   return (
     <Provider>
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <NavigationContainer>
-          <Navigator/>
+          <Navigator />
         </NavigationContainer>
       </View>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
