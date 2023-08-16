@@ -6,6 +6,7 @@ import Login from "../screens/login";
 import Home from "../screens/home";
 import { Context } from "../globalContext/globalContext.js";
 import Register from "../screens/register";
+import bienvenida from "../login/bienvenida";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ function Navigator(props) {
 
   return (
     <Stack.Navigator initialRouteName="Landing">
-      {!isLoggedIn || !userObj ? 
+      {!isLoggedIn || !userObj ? (
         <>
           <Stack.Screen
             name="Landing"
@@ -33,13 +34,20 @@ function Navigator(props) {
             options={{ headerShown: false }}
           />
         </>
-       : 
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
-        />
-      }
+      ) : (
+        <>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Bienvenida"
+            component={bienvenida}
+            options={{ headerShown: false }}
+          />
+        </>
+      )}
     </Stack.Navigator>
   );
 }
