@@ -6,6 +6,7 @@ import fonts from "../styles/fonts.js";
 import inputs from "../styles/inputs.js";
 import margins from "../styles/margins.js";
 import buttons from "../styles/buttons.js";
+import { Box, Center, Image, NativeBaseProvider } from "native-base";
 
 function Login({ navigation, route, props }) {
   const globalContext = useContext(Context);
@@ -51,45 +52,68 @@ function Login({ navigation, route, props }) {
   }
 
   return (
-    <View style={containers(appSettings).outerPage}>
-      <View style={containers(appSettings).formBox}>
-        <Text style={[fonts(appSettings).h1, margins.top30Percent]}>LOGIN</Text>
-
-        {error ? (
-          <Text style={fonts(appSettings).errorLabel}>{error}</Text>
-        ) : null}
-
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent]}>
-          Correo electrónico
-        </Text>
-        <TextInput
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          textContentType="username"
-          autoCompleteType="email"
-          style={inputs(appSettings).textInput}
-          placeholder="Correo Electrónico"
-        />
-        <Text style={[fonts(appSettings).inputLabel, margins.topTenPercent1]}>
-          Contraseña
-        </Text>
-        <TextInput
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry={securePassword}
-          textContentType="password"
-          autoCompleteType="password"
-          style={inputs(appSettings).textInput}
-          placeholder="Contraseña"
-        />
-        <TouchableOpacity
-          style={[buttons(appSettings).login, margins.topTenPercentButton]}
-          onPress={() => handleLogin()}
-        >
-          <Text style={{ color: "white" }}>Acceso</Text>
-        </TouchableOpacity>
+    <NativeBaseProvider>
+      <View style={containers(appSettings).outerPage}>
+        <View style={containers(appSettings).formBox}>
+          <Center>
+            <Image
+              alt="logo"
+              size={150}
+              borderRadius={30}
+              source={{
+                uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
+              }}
+            />
+          </Center>
+          {error ? (
+            <Text style={fonts(appSettings).errorLabel}>{error}</Text>
+          ) : null}
+          <Box style={{ marginTop: "10%" }}>
+            <TextInput
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              textContentType="username"
+              autoCompleteType="email"
+              style={[
+                inputs(appSettings).textInput,
+                {
+                  borderColor: "#2F3370",
+                  borderWidth: 2,
+                  borderRadius: 15,
+                  paddingHorizontal: 10,
+                },
+              ]}
+              placeholder="E-mail"
+            />
+          </Box>
+          <Box style={{ marginTop: "10%" }}>
+            <TextInput
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              secureTextEntry={securePassword}
+              textContentType="password"
+              autoCompleteType="password"
+              placeholder="Contraseña"
+              style={[
+                inputs(appSettings).textInput,
+                {
+                  borderColor: "#2F3370",
+                  borderWidth: 2,
+                  borderRadius: 15,
+                  paddingHorizontal: 10,
+                },
+              ]}
+            />
+          </Box>
+          <TouchableOpacity
+            style={[buttons(appSettings).login, margins.topTenPercentButton]}
+            onPress={() => handleLogin()}
+          >
+            <Text style={{ color: "white" }}>Acceder</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </NativeBaseProvider>
   );
 }
 
