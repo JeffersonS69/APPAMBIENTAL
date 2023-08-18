@@ -7,6 +7,13 @@ import Home from "../screens/home";
 import { Context } from "../globalContext/globalContext.js";
 import Register from "../screens/register";
 import bienvenida from "../login/bienvenida";
+import Advice from "../screens/Advice"; 
+import Tidings from "../screens/Tidings";
+import preparing from "../screens/preparing"; 
+import recovery from "../screens/recovery";
+import view from "../screens/view"; 
+import warnings from "../screens/warnings";
+
 
 const Stack = createStackNavigator();
 
@@ -46,6 +53,17 @@ function Navigator(props) {
             component={bienvenida}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="Advice"
+            component={Advice}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Tidings"
+            component={Tidings}
+            options={{ headerShown: false }}
+          />
+         
         </>
       )}
     </Stack.Navigator>
