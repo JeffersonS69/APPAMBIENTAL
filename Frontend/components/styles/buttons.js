@@ -6,20 +6,20 @@ const buttons = (appSettings) => StyleSheet.create({
     
     login:{
       width: "100%",
-      height: 35,
+      height: 55,
       backgroundColor: "#2F3370",
       textAlign: "center",
       alignItems: "center",
       justifyContent: "center",
-      borderRadius: 15,
+      borderRadius: 25,
     },
     register:{
-      height: 35,
+      height: 55,
       backgroundColor: "#2F3370",
       textAlign: "center",
       alignItems: "center",
       justifyContent: "center",
-      borderRadius: 15,
+      borderRadius: 25,
     }
 
 });

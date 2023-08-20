@@ -74,7 +74,16 @@ function Login({ navigation, route, props }) {
               />
             </Center>
             {error ? (
-              <Text style={fonts(appSettings).errorLabel}>{error}</Text>
+              <Text
+                style={[
+                  fonts(appSettings).errorLabel,
+                  {
+                    color: "#000",
+                  },
+                ]}
+              >
+                {error}
+              </Text>
             ) : null}
             <Box style={{ marginTop: "10%" }}>
               <TextInput
@@ -87,7 +96,7 @@ function Login({ navigation, route, props }) {
                   {
                     borderColor: "#2F3370",
                     borderWidth: 2,
-                    borderRadius: 15,
+                    borderRadius: 25,
                     paddingHorizontal: 10,
                   },
                 ]}
@@ -107,7 +116,7 @@ function Login({ navigation, route, props }) {
                   {
                     borderColor: "#2F3370",
                     borderWidth: 2,
-                    borderRadius: 15,
+                    borderRadius: 25,
                     paddingHorizontal: 10,
                   },
                 ]}

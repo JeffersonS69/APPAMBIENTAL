@@ -197,7 +197,6 @@ const styles = StyleSheet.create({
   
   stepNumberContainer: {
     backgroundColor: "#0090ad81", 
-    // Turquoise background color for step number
     opacity: 0.8,
     borderRadius: 50,
     width: 36,
@@ -213,7 +212,7 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black", // Step number text color
+    color: "black", 
     
     
   },
@@ -223,27 +222,27 @@ const styles = StyleSheet.create({
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black", // Step title text color
+    color: "black", 
     marginTop:5,
     
   },
   stepTitle2: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black", // Step title text color
+    color: "black", 
     textAlign: "right",
     marginTop:5,
   },
   stepDescription: {
     fontSize: 16,
     marginTop: 4,
-    color: "black", // Step description text color
+    color: "black", 
     marginBottom:5
   },
   stepDescription2: {
     fontSize: 16,
     marginTop: 4,
-    color: "black", // Step description text color
+    color: "black", 
     textAlign: "right",
     marginBottom:5
   },
@@ -252,8 +251,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "black",
-    marginTop: 24, // Adding some space at the top
-    marginBottom: 16, // Adding some space at the bottom
+    marginTop: 24, 
+    marginBottom: 16,
     
   }
 });
