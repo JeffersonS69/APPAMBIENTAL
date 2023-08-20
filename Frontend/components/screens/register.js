@@ -125,7 +125,7 @@ function Register({ navigation, route, props }) {
                     paddingHorizontal: 10,
                   },
                 ]}
-                placeholder="Correo Electrónico"
+                placeholder="🔗 Correo Electrónico"
               />
             </Box>
             <Box style={{ marginTop: "10%" }}>
@@ -144,7 +144,7 @@ function Register({ navigation, route, props }) {
                     paddingHorizontal: 10,
                   },
                 ]}
-                placeholder={"Contraseña"}
+                placeholder={"🔑 Contraseña"}
               />
             </Box>
             <Text style={fonts(appSettings).errorLabel}>{error}</Text>

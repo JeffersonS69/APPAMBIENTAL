@@ -5,7 +5,7 @@ import { StyleSheet, Dimensions } from "react-native";
 const fonts = (appSettings) => StyleSheet.create({
     
     h1: {
-        color: ('foregroundColor'.includes(appSettings))? appSettings['foregroundColor']: '#ffffff',
+        color: ('foregroundColor'.includes(appSettings))? appSettings['foregroundColor']: '#000',
         fontSize: 34,
         fontWeight: "bold",
         textAlign: "center",
@@ -14,7 +14,7 @@ const fonts = (appSettings) => StyleSheet.create({
     },
 
     p: {
-      color: ("forengroundColor".includes(appSettings))? appSettings['foregroundColor'] : '#ffffff',
+      color: ("forengroundColor".includes(appSettings))? appSettings['foregroundColor'] : '#000',
       fontSize: 12,
       width: "100%",
       textAlign: "center",
@@ -22,7 +22,7 @@ const fonts = (appSettings) => StyleSheet.create({
     },
 
     inputLabel:{
-      color: ("forengroundColor".includes(appSettings))? appSettings['foregroundColor'] : '#ffffff',
+      color: ("forengroundColor".includes(appSettings))? appSettings['foregroundColor'] : '#000',
       fontSize: 12,
       width: "100%",
       margin: 0,

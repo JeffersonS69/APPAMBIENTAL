@@ -5,8 +5,8 @@ import { StyleSheet, Dimensions } from "react-native";
 const containers = (appSettings) => StyleSheet.create({
     
     outerPage: {
-        backgroundColor: ('backgroundColor'.includes(appSettings) ) ? appSettings['backgroundColor']: "#008080",
-        color: ('foregroundColor'.includes(appSettings))? appSettings['foregroundColor']: "#008080",
+        backgroundColor: ('backgroundColor'.includes(appSettings) ) ? appSettings['backgroundColor']: "#FFF",
+        color: ('foregroundColor'.includes(appSettings))? appSettings['foregroundColor']: "#FFF",
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
         alignItems: "center",

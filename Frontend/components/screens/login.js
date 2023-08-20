@@ -6,7 +6,14 @@ import fonts from "../styles/fonts.js";
 import inputs from "../styles/inputs.js";
 import margins from "../styles/margins.js";
 import buttons from "../styles/buttons.js";
-import { Box, Center, Image, NativeBaseProvider } from "native-base";
+import {
+  Box,
+  Center,
+  Container,
+  Image,
+  NativeBaseProvider,
+  VStack,
+} from "native-base";
 
 function Login({ navigation, route, props }) {
   const globalContext = useContext(Context);
@@ -53,66 +60,87 @@ function Login({ navigation, route, props }) {
 
   return (
     <NativeBaseProvider>
-      <View style={containers(appSettings).outerPage}>
-        <View style={containers(appSettings).formBox}>
-          <Center>
-            <Image
-              alt="logo"
-              size={150}
-              borderRadius={30}
-              source={{
-                uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
-              }}
-            />
-          </Center>
-          {error ? (
-            <Text style={fonts(appSettings).errorLabel}>{error}</Text>
-          ) : null}
-          <Box style={{ marginTop: "10%" }}>
-            <TextInput
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-              textContentType="username"
-              autoCompleteType="email"
-              style={[
-                inputs(appSettings).textInput,
-                {
-                  borderColor: "#2F3370",
-                  borderWidth: 2,
-                  borderRadius: 15,
-                  paddingHorizontal: 10,
-                },
-              ]}
-              placeholder="E-mail"
-            />
-          </Box>
-          <Box style={{ marginTop: "10%" }}>
-            <TextInput
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              secureTextEntry={securePassword}
-              textContentType="password"
-              autoCompleteType="password"
-              placeholder="Contraseña"
-              style={[
-                inputs(appSettings).textInput,
-                {
-                  borderColor: "#2F3370",
-                  borderWidth: 2,
-                  borderRadius: 15,
-                  paddingHorizontal: 10,
-                },
-              ]}
-            />
-          </Box>
-          <TouchableOpacity
-            style={[buttons(appSettings).login, margins.topTenPercentButton]}
-            onPress={() => handleLogin()}
-          >
-            <Text style={{ color: "white" }}>Acceder</Text>
-          </TouchableOpacity>
+      <Container>
+        <View style={containers(appSettings).outerPage}>
+          <View style={containers(appSettings).formBox}>
+            <Center>
+              <Image
+                alt="logo"
+                size={150}
+                borderRadius={30}
+                source={{
+                  uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
+                }}
+              />
+            </Center>
+            {error ? (
+              <Text style={fonts(appSettings).errorLabel}>{error}</Text>
+            ) : null}
+            <Box style={{ marginTop: "10%" }}>
+              <TextInput
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+                textContentType="username"
+                autoCompleteType="email"
+                style={[
+                  inputs(appSettings).textInput,
+                  {
+                    borderColor: "#2F3370",
+                    borderWidth: 2,
+                    borderRadius: 15,
+                    paddingHorizontal: 10,
+                  },
+                ]}
+                placeholder="🔗 E-mail"
+              />
+            </Box>
+            <Box style={{ marginTop: "10%" }}>
+              <TextInput
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+                secureTextEntry={securePassword}
+                textContentType="password"
+                autoCompleteType="password"
+                placeholder="🔑 Contraseña"
+                style={[
+                  inputs(appSettings).textInput,
+                  {
+                    borderColor: "#2F3370",
+                    borderWidth: 2,
+                    borderRadius: 15,
+                    paddingHorizontal: 10,
+                  },
+                ]}
+              />
+            </Box>
+            <Box>
+              <VStack space={4} alignItems="center">
+                <Center w="64" h="20">
+                  <TouchableOpacity
+                    style={[
+                      buttons(appSettings).login,
+                      margins.topTenPercentButton,
+                    ]}
+                    onPress={() => handleLogin()}
+                  >
+                    <Text style={{ color: "white" }}>Acceder</Text>
+                  </TouchableOpacity>
+                </Center>
+                <VStack>
+                  <Center w="64" h="20">
+                    <TouchableOpacity
+                      style={[buttons(appSettings).login]}
+                      onPress={() => navigation.navigate("Register")}
+                    >
+                      <Text style={{ color: "white" }}>No tengo cuenta</Text>
+                    </TouchableOpacity>
+                  </Center>
+                </VStack>
+              </VStack>
+            </Box>
+          </View>
         </View>
-      </View>
+      </Container>
     </NativeBaseProvider>
   );
 }

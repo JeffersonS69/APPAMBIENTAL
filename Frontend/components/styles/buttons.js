@@ -7,7 +7,7 @@ const buttons = (appSettings) => StyleSheet.create({
     login:{
       width: "100%",
       height: 35,
-      backgroundColor: "#2d353f",
+      backgroundColor: "#2F3370",
       textAlign: "center",
       alignItems: "center",
       justifyContent: "center",
@@ -15,7 +15,7 @@ const buttons = (appSettings) => StyleSheet.create({
     },
     register:{
       height: 35,
-      backgroundColor: "#2d353f",
+      backgroundColor: "#2F3370",
       textAlign: "center",
       alignItems: "center",
       justifyContent: "center",
