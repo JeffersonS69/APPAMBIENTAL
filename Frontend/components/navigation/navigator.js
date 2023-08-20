@@ -6,13 +6,12 @@ import Login from "../screens/login";
 import Home from "../screens/home";
 import { Context } from "../globalContext/globalContext.js";
 import Register from "../screens/register";
-import bienvenida from "../login/bienvenida";
 import Advice from "../screens/Advice"; 
 import Tidings from "../screens/Tidings";
-import preparing from "../screens/preparing"; 
 import view from "../screens/view"; 
 import warnings from "../screens/warnings";
 import Recovery from "../screens/recovery";
+import Preparing from "../screens/preparing";
 
 
 const Stack = createStackNavigator();
@@ -49,11 +48,6 @@ function Navigator(props) {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Bienvenida"
-            component={bienvenida}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
             name="Recovery"
             component={Recovery}
             options={{ headerShown: false }}
@@ -61,6 +55,11 @@ function Navigator(props) {
           <Stack.Screen
             name="Tidings"
             component={Tidings}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="Preparing"
+            component={Preparing}
             options={{ headerShown: false }}
           />
          

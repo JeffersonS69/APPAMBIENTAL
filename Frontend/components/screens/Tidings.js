@@ -1,18 +1,14 @@
-import React, { useContext } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { Context } from "../globalContext/globalContext.js";
-import containers from "../styles/containers.js";
-import fonts from "../styles/fonts.js";
-import buttons from "../styles/buttons.js";
-import margins from "../styles/margins.js";
-import { banner, logo, optionContainer, option, optionText, optionImage } from "../styles/TidingStyles.js";
+import React from "react";
+import { View, Text, TouchableOpacity} from "react-native";
+import { Center, Image, NativeBaseProvider } from "native-base";
+
 
 
 function Tidings({ navigation }) {
   return (
-    <View style={containers().outerPage}>
-      <View style={banner}>
-        {/* Logo */}
+    <NativeBaseProvider>
+    <View>
+      <View >
         <Center>
           <Image
             alt="logo"
@@ -25,51 +21,52 @@ function Tidings({ navigation }) {
         </Center>
       </View>
 
-      <View style={optionContainer}>
+      <View >
         {/* Option 1 */}
-        <TouchableOpacity style={option} onPress={() => navigation.navigate("preparing")}>
+        <TouchableOpacity  onPress={() => navigation.navigate("Preparing")}>
           <Image alt="logo"
             size={150}
             borderRadius={30}
             source={{
-              uri: "https://i.ibb.co/W22nPQz/preparate-desastre-natural.png",}} style={optionImage} />
-          <Text style={optionText}>Prepárate para un desastre natural</Text>
+              uri: "https://i.ibb.co/W22nPQz/preparate-desastre-natural.png",}}  />
+          <Text >Prepárate para un desastre natural</Text>
         </TouchableOpacity>
 
         {/* Option 2 */}
-        <TouchableOpacity style={option} 
+        <TouchableOpacity  
         onPress={() => navigation.navigate("warnings")}>
         <Image alt="logo"
             size={150}
             borderRadius={30}
             source={{
-              uri: "https://i.ibb.co/3C9cQ95/alertas-desastres.png",}} style={optionImage} />
-          <Text style={optionText}>Alertas de desastres</Text>
+              uri: "https://i.ibb.co/3C9cQ95/alertas-desastres.png",}}  />
+          <Text >Alertas de desastres</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={optionContainer}>
+      <View >
         {/* Option 3 */}
-        <TouchableOpacity style={[buttons(appSettings).view]} onPress={() => navigation.navigate("view")}>
+        <TouchableOpacity  onPress={() => navigation.navigate("view")}>
         <Image alt="logo"
             size={150}
             borderRadius={30}
             source={{
-              uri: "https://i.ibb.co/RCNwsqw/ver-desastres-recientes.png",}} style={optionImage} />
-          <Text style={optionText}>Ver desastres recientes</Text>
+              uri: "https://i.ibb.co/RCNwsqw/ver-desastres-recientes.png",}}  />
+          <Text >Ver desastres recientes</Text>
         </TouchableOpacity>
 
         {/* Option 4 */}
-        <TouchableOpacity style={option} onPress={() => navigation.navigate("recovery")}>
+        <TouchableOpacity  onPress={() => navigation.navigate("Recovery")}>
         <Image alt="logo"
             size={150}
             borderRadius={30}
             source={{
-              uri: "https://i.ibb.co/ncZhwqs/recuperarse-desatres-naturales.png",}} style={optionImage} />
-          <Text style={optionText}>Recuperarse de un desastre natural</Text>
+              uri: "https://i.ibb.co/ncZhwqs/recuperarse-desatres-naturales.png",}} />
+          <Text>Recuperarse de un desastre natural</Text>
         </TouchableOpacity>
       </View>
     </View>
+    </NativeBaseProvider>
   );
 }
 

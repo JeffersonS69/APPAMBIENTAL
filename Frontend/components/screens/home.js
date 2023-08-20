@@ -19,10 +19,11 @@ function Home({ navigation, route, props }) {
       </Text>
       <TouchableOpacity
         style={[buttons(appSettings).login, margins.topTenPercentButton]}
-        onPress={() => navigation.navigate("Bienvenida")}
+        onPress={() => navigation.navigate("Tidings")}
       >
         <Text style={{ color: "white" }}>"=='"</Text>
       </TouchableOpacity>
+      
     </View>
   );
 }
