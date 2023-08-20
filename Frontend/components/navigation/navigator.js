@@ -10,9 +10,9 @@ import bienvenida from "../login/bienvenida";
 import Advice from "../screens/Advice"; 
 import Tidings from "../screens/Tidings";
 import preparing from "../screens/preparing"; 
-import recovery from "../screens/recovery";
 import view from "../screens/view"; 
 import warnings from "../screens/warnings";
+import Recovery from "../screens/recovery";
 
 
 const Stack = createStackNavigator();
@@ -54,8 +54,8 @@ function Navigator(props) {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Advice"
-            component={Advice}
+            name="Recovery"
+            component={Recovery}
             options={{ headerShown: false }}
           />
           <Stack.Screen
