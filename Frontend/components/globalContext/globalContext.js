@@ -4,7 +4,7 @@ import * as SecureStore from 'expo-secure-store'
 const Context = createContext();
 
 const Provider = ({ children }) => {
-  const [domain, setDomain] = useState("http://10.0.2.2:8000");
+  const [domain, setDomain] = useState("http://192.168.100.149:8000");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(false);
   const [appSttings, setAppSettings] = useState({});
