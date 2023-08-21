@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { Context } from "../globalContext/globalContext.js";
-import containers from "../styles/containers.js";
-import fonts from "../styles/fonts.js";
-import buttons from "../styles/buttons.js";
-import margins from "../styles/margins.js";
+import { Context } from "../../globalContext/globalContext.js";
+import containers from "../../styles/containers.js";
+import fonts from "../../styles/fonts.js";
+import buttons from "../../styles/buttons.js";
+import margins from "../../styles/margins.js";
 import { Box, Center, Container, NativeBaseProvider, VStack } from "native-base";
 
 function Home({ navigation, route, props }) {

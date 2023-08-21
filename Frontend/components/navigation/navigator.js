@@ -1,18 +1,16 @@
 import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { View } from "react-native";
-import Landing from "../screens/landing";
-import Login from "../screens/login";
-import Home from "../screens/home";
 import { Context } from "../globalContext/globalContext.js";
 import Register from "../screens/register";
-import Advice from "../screens/Advice"; 
-import Tidings from "../screens/Tidings";
-import view from "../screens/view"; 
+import view from "../screens/view";
 import warnings from "../screens/warnings";
 import Recovery from "../screens/recovery";
 import Preparing from "../screens/preparing";
-
+import Home from "../screens/login/home";
+import Login from "../screens/logout/login";
+import Landing from "../screens/logout/landing.js";
+import Tidings from "../screens/login/desastres/Tidings.js";
 
 const Stack = createStackNavigator();
 
@@ -57,12 +55,11 @@ function Navigator(props) {
             component={Tidings}
             options={{ headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Preparing"
             component={Preparing}
             options={{ headerShown: false }}
           />
-         
         </>
       )}
     </Stack.Navigator>

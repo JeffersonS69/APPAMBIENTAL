@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { Context } from "../globalContext/globalContext.js";
-import containers from "../styles/containers.js";
-import fonts from "../styles/fonts.js";
-import inputs from "../styles/inputs.js";
-import margins from "../styles/margins.js";
-import buttons from "../styles/buttons.js";
+import { Context } from "../../globalContext/globalContext.js";
+import containers from "../../styles/containers.js";
+import fonts from "../../styles/fonts.js";
+import inputs from "../../styles/inputs.js";
+import margins from "../../styles/margins.js";
+import buttons from "../../styles/buttons.js";
 import {
   Box,
   Center,

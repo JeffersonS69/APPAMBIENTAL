@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { Context } from "../globalContext/globalContext.js";
-import containers from "../styles/containers.js";
-import fonts from "../styles/fonts.js";
-import buttons from "../styles/buttons.js";
-import margins from "../styles/margins.js";
-import { banner, logo, bannerText, buttonContainer, button, buttonText, buttonSmallText } from "../styles/AdviceStyles.js";
+import { Context } from "../../../../globalContext/globalContext.js";
+import containers from "../../../../styles/containers.js";
+import fonts from "../../../../styles/fonts.js";
+import buttons from "../../../../styles/buttons.js";
+import margins from "../../../../styles/margins.js";
+import { banner, logo, bannerText, buttonContainer, button, buttonText, buttonSmallText } from "../../../../styles/AdviceStyles.js";
 
 function Advice({ navigation }) {
     return (
