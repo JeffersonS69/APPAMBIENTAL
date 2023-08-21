@@ -51,7 +51,7 @@ function Recovery() {
                   Asegúrate de que estás a salvo y no haya peligros inmediatos.
                 </>
               }
-              image="https://preparados.pe/web/image/1101/3d.jpg"
+              image="https://geografia23.files.wordpress.com/2013/05/zona-segura.jpg"
             />
             <Step
               number="3"
