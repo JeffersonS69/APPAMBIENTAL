@@ -11,6 +11,7 @@ import Home from "../screens/login/home";
 import Login from "../screens/logout/login";
 import Landing from "../screens/logout/landing.js";
 import Tidings from "../screens/login/desastres/Tidings.js";
+import PrincipalClim from "../screens/login/clima/principalClim.js";
 
 const Stack = createStackNavigator();
 
@@ -58,6 +59,11 @@ function Navigator(props) {
           <Stack.Screen
             name="Preparing"
             component={Preparing}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PrincipalClima"
+            component={PrincipalClim}
             options={{ headerShown: false }}
           />
         </>
