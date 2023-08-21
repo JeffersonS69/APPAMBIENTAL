@@ -14,6 +14,16 @@ const containers = (appSettings) => StyleSheet.create({
         padding: 0,
         margin: 0,
     },
+      
+    outerPagePP: {
+        color: ('foregroundColor'.includes(appSettings))? appSettings['foregroundColor']: "#FFF",
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 0,
+        margin: 0,
+    },
 
     formBox: {
         width: "80%",
