@@ -30,7 +30,7 @@ function Home({ navigation, route, props }) {
                   buttons(appSettings).login,
                   margins.topTenPercentButton,
                 ]}
-                onPress={() => navigation.navigate("Tidings")}
+                onPress={() => navigation.navigate("Advice")}
               >
                 <Center
                   w="64"
