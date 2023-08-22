@@ -79,7 +79,7 @@ export default function DetallesClim({ route }) {
             width="100%"
             height={"100%"}
             source={{
-              uri: "https://img.freepik.com/vector-gratis/fondo-degradado-tonos-verdes_23-2148395299.jpg",
+              uri: "https://www.mountainsafety.org.nz/assets/Photos/msc-NW-landscape-mountain-tops-sky-15__FillMaxWzEyMDAsNjMwXQ.jpg",
             }}
           />
           <Center w="64" h="20" />
@@ -145,11 +145,11 @@ export default function DetallesClim({ route }) {
                         borderRadius={8}
                         key={index}
                       >
-                        <Text>Día: {forecast.dt_txt}</Text>
-                        <Text>
+                        <Text style={{color: "white"}}>Día: {forecast.dt_txt}</Text>
+                        <Text style={{color: "white"}}>
                           Temperatura: {forecast.main.temp.toFixed(0) - 273} °C
                         </Text>
-                        <Text>Clima: {forecast.weather[0].main}</Text>
+                        <Text style={{color: "white"}}>Clima: {forecast.weather[0].main}</Text>
                       </Box>
                     ))
                   ) : (
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: "center",
     fontWeight: "bold",
-    color: "black",
+    color: "white",
     marginTop: 1,
     marginBottom: 16,
   },

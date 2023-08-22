@@ -8,10 +8,9 @@ import {
   Image,
   ScrollView,
 } from "native-base";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../../globalContext/globalContext";
-import containers from "../../../styles/containers";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { useClimas } from "./hooks/useClimas";
 
 export default function PrincipalClim({ navigation }) {
@@ -20,290 +19,124 @@ export default function PrincipalClim({ navigation }) {
   const { esmeraldas, Quito, Manta, Guayaquill, SantoD, Cuenca, Ibarra } =
     useClimas();
 
-  const esmer = esmeraldas?.main?.temp.toFixed(0);
-  const quito = Quito?.main?.temp.toFixed(0);
-  const manta = Manta?.main?.temp.toFixed(0);
-  const guaya = Guayaquill?.main?.temp.toFixed(0);
-  const santoDomin = SantoD?.main?.temp.toFixed(0);
-  const cuenca = Cuenca?.main?.temp.toFixed(0);
-  const ibarra = Ibarra?.main?.temp.toFixed(0);
+  const renderCity = (city, cityName, long, lat) => {
+    const temperature = city?.main?.temp?.toFixed(0) - 273;
+    const imageUrl = getCityImageUrl(cityName);
+
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("DetallesClima", {
+            dataCity: city,
+            nameCity: cityName,
+            long: long,
+            lat: lat,
+          });
+        }}
+      >
+        <Step
+          title={cityName}
+          description={
+            city ? `Temperatura: ${temperature}°C` : "Cargando datos del clima..."
+          }
+          image={imageUrl}
+        />
+      </TouchableOpacity>
+    );
+  };
+
+  const getCityImageUrl = (cityName) => {
+    switch (cityName) {
+      case "Esmeraldas":
+        return "https://www.lahora.com.ec/wp-content/uploads/2022/08/Bandera-e1659677333793.jpg";
+      case "Quito":
+        return "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Quito.svg/2560px-Flag_of_Quito.svg.png";
+      case "Manta":
+        return "https://ec.viajandox.com/uploads/Bandera%20de%20Manta_1.jpg";
+      case "Guayaquil":
+        return "https://static.magflags.net/media/catalog/product/cache/75170699113cf9b1963820a3ea1bab40/E/C/EC-prov_ncia_guayas_1.png";
+      case "Santo Domingo":
+        return "https://geopoliticaybanderas.files.wordpress.com/2021/02/chimborazo.png";
+      case "Cuenca":
+        return "https://elyex.com/wp-content/uploads/2022/08/bandera-cuenca-ecuador.webp";
+      case "Ibarra":
+        return "https://us.123rf.com/450wm/mra7med/mra7med2301/mra7med230100286/200475882-ilustraci%C3%B3n-3d-de-una-bandera-ondeante-de-la-ciudad-de-ecuador-de-ibarra.jpg";
+      default:
+        return "https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg";
+    }
+  };
+
   return (
     <NativeBaseProvider>
-      <Container>
-        <View style={containers(appSettings).outerPage}>
+        <View style={styles.background}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <Image
             alt="fondo"
             resizeMode="cover"
             position="absolute"
             width="100%"
-            height={"100%"}
+            height="100%"
             source={{
-              uri: "https://us.123rf.com/450wm/getgg/getgg1902/getgg190200282/116692176-dise%C3%B1o-de-pantalla-abstracto-para-aplicaci%C3%B3n-m%C3%B3vil-fondo-degradado-de-color-suave-concepto-de.jpg?ver=6",
+              uri:
+                "https://kauainownews.com/wp-content/uploads/2022/09/braden-jarvis-prSogOoFmkw-unsplash.jpg",
             }}
           />
-          <Center w="64" h="20" />
-          <ScrollView style={{ flex: 1 }}>
-            <View>
-              <VStack space={4}>
-                <TouchableOpacity
-                  bg="rgba(0, 0, 0, 0.2)"
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: esmeraldas,
-                      nameCity: "Esmeraldas",
-                      long: "-79.6833",
-                      lat: "0.9333",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Esmeraldas"
-                    description={
-                      <>
-                        {esmeraldas ? (
-                          <>
-                            <Text>Temperatura: {esmer - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://www.lahora.com.ec/wp-content/uploads/2022/08/Bandera-e1659677333793.jpg"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: Quito,
-                      nameCity: "Quito",
-                      long: "-78.5249",
-                      lat: "-0.2299",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Quito"
-                    description={
-                      <>
-                        {quito ? (
-                          <>
-                            <Text>Temperatura: {quito - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Quito.svg/2560px-Flag_of_Quito.svg.png"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: Manta,
-                      nameCity: "Manta",
-                      long: "-80.7333",
-                      lat: "-0.95",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Manta"
-                    description={
-                      <>
-                        {manta ? (
-                          <>
-                            <Text>Temperatura: {manta - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://ec.viajandox.com/uploads/Bandera%20de%20Manta_1.jpg"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: Guayaquill,
-                      nameCity: "Guayaquil",
-                      long: "-79.9",
-                      lat: "-2.1667",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Guayaquil"
-                    description={
-                      <>
-                        {guaya ? (
-                          <>
-                            <Text>Temperatura: {guaya - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://static.magflags.net/media/catalog/product/cache/75170699113cf9b1963820a3ea1bab40/E/C/EC-prov_ncia_guayas_1.png"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: SantoD,
-                      nameCity: "Santo Domingo",
-                      long: "-79.15",
-                      lat: "-0.25",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Santo Domingo"
-                    description={
-                      <>
-                        {santoDomin ? (
-                          <>
-                            <Text>Temperatura: {santoDomin - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://geopoliticaybanderas.files.wordpress.com/2021/02/chimborazo.png"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: Cuenca,
-                      nameCity: "Cuenca",
-                      long: "-78.9833",
-                      lat: "-2.8833",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Cuenca"
-                    description={
-                      <>
-                        {cuenca ? (
-                          <>
-                            <Text>Temperatura: {cuenca - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://elyex.com/wp-content/uploads/2022/08/bandera-cuenca-ecuador.webp"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("DetallesClima", {
-                      dataCity: Ibarra,
-                      nameCity: "Ibarra",
-                      long: "-78.1167",
-                      lat: "0.35",
-                    });
-                  }}
-                >
-                  <Step
-                    title="Ibarra"
-                    description={
-                      <>
-                        {ibarra ? (
-                          <>
-                            <Text>Temperatura: {ibarra - 273}°C</Text>
-                          </>
-                        ) : (
-                          <Text>Cargando datos del clima...</Text>
-                        )}
-                      </>
-                    }
-                    image="https://us.123rf.com/450wm/mra7med/mra7med2301/mra7med230100286/200475882-ilustraci%C3%B3n-3d-de-una-bandera-ondeante-de-la-ciudad-de-ecuador-de-ibarra.jpg"
-                  />
-                  <Center w="64" h="20"></Center>
-                </TouchableOpacity>
-              </VStack>
-            </View>
+            <Center>
+              <Text fontSize="xl" fontWeight="bold" color="black" mt={10}>
+                Estación del Clima
+              </Text>
+            </Center>
+            <VStack space={4} p={4}>
+              {renderCity(esmeraldas, "Esmeraldas", "-79.6833", "0.9333")}
+              {renderCity(Quito, "Quito", "-78.5249", "-0.2299")}
+              {renderCity(Manta, "Manta", "-80.7333", "-0.95")}
+              {renderCity(Guayaquill, "Guayaquil", "-79.9", "-2.1667")}
+              {renderCity(SantoD, "Santo Domingo", "-79.15", "-0.25")}
+              {renderCity(Cuenca, "Cuenca", "-78.9833", "-2.8833")}
+              {renderCity(Ibarra, "Ibarra", "-78.1167", "0.35")}
+            </VStack>
           </ScrollView>
         </View>
-      </Container>
     </NativeBaseProvider>
   );
 }
-function Step({ number, title, description, image }) {
+
+function Step({ title, description, image }) {
   return (
-    <View style={styles.stepContainerR}>
+    <View style={styles.stepContainer}>
       <View style={styles.stepContent}>
         <Text style={styles.stepTitle}>{title}</Text>
         <Text style={styles.stepDescription}>{description}</Text>
       </View>
-      <View>
-        <Image
-          alt="logo"
-          size={100}
-          borderRadius={30}
-          marginRight={5}
-          marginTop={2}
-          marginBottom={2}
-          source={{
-            uri: image,
-          }}
-        ></Image>
-      </View>
+      <Image
+        alt="logo"
+        size={100}
+        borderRadius={30}
+        source={{
+          uri: image,
+        }}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginVertical: 16,
-    color: "black", // Text color
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f0f0", // Color de fondo del contenedor
   },
-
-  stepContainerR: {
+  background: {
+    flex: 1,
+    backgroundColor: "#3498db", // Color de fondo principal
+  },
+  stepContainer: {
     flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 22,
-    borderWidth: 2,
-    borderStyle: "solid",
-    borderRadius: 10,
-    padding: 10,
-    backgroundColor: "white",
-  },
-  stepContainerL: {
-    flexDirection: "row-reverse",
-    alignItems: "flex-start",
-    marginBottom: 22,
-    borderWidth: 2,
-    borderStyle: "dashed",
-    borderRadius: 10,
-    padding: 10,
-    backgroundColor: "white",
-  },
-
-  stepNumberContainer: {
-    borderRadius: 50,
-    width: 36,
-    height: 36,
-    justifyContent: "center",
     alignItems: "center",
-    marginRight: 12,
-    marginLeft: 5,
+    marginBottom: 20,
     borderWidth: 2,
-    marginTop: 5,
-  },
-  stepNumber: {
-    fontSize: 18,
-    fontWeight: "bold",
+    borderRadius: 10,
+    padding: 10,
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
   },
   stepContent: {
     flex: 1,
@@ -311,18 +144,10 @@ const styles = StyleSheet.create({
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    marginTop: 5,
+    marginBottom: 5,
   },
   stepDescription: {
     fontSize: 16,
-    marginTop: 4,
     marginBottom: 5,
   },
-  pageTitle: {
-    fontSize: 28,
-    textAlign: "center",
-    fontWeight: "bold",
-    marginTop: 24, // Adding some space at the top
-    marginBottom: 16, // Adding some space at the bottom
-  },
-});
+};
