@@ -8,94 +8,92 @@ function Advice({ navigation }) {
   const { appSettings } = globalContext;
   return (
     <NativeBaseProvider>
-      <View style={containers(appSettings).outerPagePP}>
-        <View style={styles.container}>
-          <Image
-            alt="fondo"
-            resizeMode="cover"
-            position="absolute"
-            width="100%"
-            height={"100%"}
-            source={{
-              uri: "https://i.ibb.co/rf60j9t/bg2.jpg",
-            }}
-          />
-          <ScrollView contentContainerStyle={styles.scrollContainer}>
-            <Center style={styles.logoContainer}>
-              <View style={styles.logoWrapper}>
-                <Image
-                  alt="logo"
-                  style={styles.logoImage}
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
-                  }}
-                />
-                <Text style={styles.pageTitle}>
-                  QUE HACER DURANTE UNA CATASTROFE NATURAL
-                </Text>
-              </View>
-            </Center>
-            <View style={styles.backgroundImageContainer}></View>
-
-            <View style={styles.stepsContainer}>
-              <Step
-                number="1"
-                title="INVESTIGA"
-                description={
-                  <>
-                    Familiarízate con los riesgos que podrían ocurrir en tu
-                    comunidad.
-                  </>
-                }
-              />
-              <Step
-                number="2"
-                title="PREPARA TU HOGAR"
-                description={
-                  <>
-                    Coordina con tu familia sobre el protocolo de emergencia.
-                    Ten a mano los números importantes.
-                  </>
-                }
-              />
-              <Step
-                number="3"
-                title="HAZ UN KIT DE EMERGENCIA"
-                description={
-                  <>
-                    Debería contener comida, agua y suministros para un mínimo
-                    de 72 horas.
-                  </>
-                }
-              />
-              <Step
-                number="4"
-                title="MANTENTE INFORMADO"
-                description={
-                  <>
-                    Contacta con tu gobierno local para saber cómo informará de
-                    las alertas e instrucciones durante una emergencia.
-                  </>
-                }
-              />
-            </View>
-            <TouchableOpacity
-              style={styles.redirectImageContainer}
-              onPress={() => navigation.navigate("Tidings")}
-            >
+      <View style={styles.container}>
+        <Image
+          alt="fondo"
+          resizeMode="cover"
+          position="absolute"
+          width="100%"
+          height="100%"
+          source={{
+            uri: "https://i.ibb.co/rf60j9t/bg2.jpg",
+          }}
+        />
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <Center style={styles.logoContainer}>
+            <View style={styles.logoWrapper}>
               <Image
-                alt="flecha"
-                resizeMode="cover"
-                position="absolute"
-                width="100"
-                height={"100%"}
+                alt="logo"
+                style={styles.logoImage}
                 source={{
-                  uri: "https://i.ibb.co/vJGjJtB/next-97612-960-720.webp",
+                  uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
                 }}
               />
-            </TouchableOpacity>
-          </ScrollView>
-        </View>
+              <Text style={styles.pageTitle}>
+                QUE HACER DURANTE UNA CATASTROFE NATURAL
+              </Text>
+            </View>
+          </Center>
+          <View style={styles.backgroundImageContainer}></View>
+
+          <View style={styles.stepsContainer}>
+            <Step
+              number="1"
+              title="INVESTIGA"
+              description={
+                <>
+                  Familiarízate con los riesgos que podrían ocurrir en tu
+                  comunidad.
+                </>
+              }
+            />
+            <Step
+              number="2"
+              title="PREPARA TU HOGAR"
+              description={
+                <>
+                  Coordina con tu familia sobre el protocolo de emergencia. Ten
+                  a mano los números importantes.
+                </>
+              }
+            />
+            <Step
+              number="3"
+              title="HAZ UN KIT DE EMERGENCIA"
+              description={
+                <>
+                  Debería contener comida, agua y suministros para un mínimo de
+                  72 horas.
+                </>
+              }
+            />
+            <Step
+              number="4"
+              title="MANTENTE INFORMADO"
+              description={
+                <>
+                  Contacta con tu gobierno local para saber cómo informará de
+                  las alertas e instrucciones durante una emergencia.
+                </>
+              }
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.redirectImageContainer}
+            onPress={() => navigation.navigate("Tidings")}
+          >
+            <Image
+              alt="flecha"
+              resizeMode="cover"
+              position="absolute"
+              width="100"
+              height={"100%"}
+              source={{
+                uri: "https://i.ibb.co/vJGjJtB/next-97612-960-720.webp",
+              }}
+            />
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     </NativeBaseProvider>
   );
@@ -144,7 +142,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   stepNumberContainer: {
-    backgroundColor: "#0090ad81",
     backgroundColor: "black", // Color de fondo negro para el rectángulo
     width: 36, // Ancho del contenedor
     height: 100, // Altura del contenedor
@@ -177,11 +174,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   pageTitle: {
-    fontSize: 19,
+    fontSize: 14,
     textAlign: "center",
     fontWeight: "bold",
     color: "black",
-    marginTop: 1, // Adding some space at the top
+    marginTop: 16, // Adding some space at the top
     marginBottom: 16, // Adding some space at the bottom
   },
   logoContainer: {

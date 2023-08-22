@@ -17,6 +17,7 @@ import {
 function Home({ navigation, route, props }) {
   const globalContext = useContext(Context);
   const { isLoggedIn, appSettings } = globalContext;
+  
 
   return (
     <NativeBaseProvider>
@@ -81,6 +82,33 @@ function Home({ navigation, route, props }) {
                     }}
                   />
                   <Text>Clima</Text>
+                </Center>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Volunteering")}
+              >
+                <Center
+                  w="64"
+                  h="20"
+                  bg="indigo.300"
+                  rounded="md"
+                  shadow={3}
+                  borderWidth={2}
+                  borderColor="#d3f5ee"
+                >
+                  <Image
+                    alt="logo"
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 20,
+                      marginRight: 10,
+                    }}
+                    source={{
+                      uri: "https://cdn-icons-png.flaticon.com/512/2871/2871742.png",
+                    }}
+                  />
+                  <Text>Voluntarios</Text>
                 </Center>
               </TouchableOpacity>
             </VStack>

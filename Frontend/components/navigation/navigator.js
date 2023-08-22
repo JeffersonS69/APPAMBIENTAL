@@ -14,6 +14,8 @@ import Tidings from "../screens/login/desastres/Tidings.js";
 import PrincipalClim from "../screens/login/clima/principalClim.js";
 import Advice from "../screens/login/desastres/desastresNatu/Advice.js";
 import DetallesClim from "../screens/login/clima/components/detallesClim.js";
+import Volunteering from "../screens/login/volunteering.js";
+import NewVolunteering from "../screens/login/newVolunteering.js";
 
 const Stack = createStackNavigator();
 
@@ -76,6 +78,16 @@ function Navigator(props) {
           <Stack.Screen
             name="DetallesClima"
             component={DetallesClim}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Volunteering"
+            component={Volunteering}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="NewVolunteering"
+            component={NewVolunteering}
             options={{ headerShown: false }}
           />
         </>

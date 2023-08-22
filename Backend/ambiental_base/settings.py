@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'Prevention',
     'Protocol',
     'Contact',
-    'Shelter'
+    'Shelter',
+    'Publication',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +92,7 @@ WSGI_APPLICATION = 'ambiental_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbambiental',
+        'NAME': 'ambiental',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

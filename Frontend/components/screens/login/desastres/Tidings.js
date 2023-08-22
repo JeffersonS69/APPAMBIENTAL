@@ -46,37 +46,6 @@ function Tidings({ navigation }) {
                 <Text style={styles.optionText}>Prepárate para un desastre natural</Text>
               </View>
             </TouchableOpacity>
-
-            {/* Option 2 */}
-            <TouchableOpacity style={styles.option} onPress={() => navigation.navigate("warnings")}>
-              <View style={styles.optionBackground}>
-                <Image
-                  alt="option"
-                  style={styles.optionImage}
-                  source={{
-                    uri: "https://i.ibb.co/Ld8X85M/alerta.webp",
-                  }}
-                />
-                <Text style={styles.optionText}>Alertas de desastres</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.optionsContainer}>
-            {/* Option 3 */}
-            <TouchableOpacity style={styles.option} onPress={() => navigation.navigate("view")}>
-              <View style={styles.optionBackground}>
-                <Image
-                  alt="option"
-                  style={styles.optionImage}
-                  source={{
-                    uri: "https://i.ibb.co/RCNwsqw/ver-desastres-recientes.png",
-                  }}
-                />
-                <Text style={styles.optionText}>Ver desastres recientes</Text>
-              </View>
-            </TouchableOpacity>
-
             {/* Option 4 */}
             <TouchableOpacity style={styles.option} onPress={() => navigation.navigate("Recovery")}>
               <View style={styles.optionBackground}>
@@ -90,6 +59,7 @@ function Tidings({ navigation }) {
                 <Text style={styles.optionText}>Recuperarse de un desastre natural</Text>
               </View>
             </TouchableOpacity>
+
           </View>
         </View>
 
@@ -138,7 +108,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20,
+    marginVertical: 30,
   },
   optionsContainer: {
     flexDirection: "row",
@@ -160,13 +130,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
-    color: "black",
+    color: "white",
   },
-  logoContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 30, // Ajusta el valor para mover el logo hacia abajo
-  },
+
   logoWrapper: {
     width: 500, // Ajusta el tamaño según tus necesidades
     height: 200, // Ajusta el tamaño según tus necesidades

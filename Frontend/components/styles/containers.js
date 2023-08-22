@@ -4,9 +4,6 @@ import { StyleSheet, Dimensions } from "react-native";
 const containers = (appSettings) =>
   StyleSheet.create({
     outerPage: {
-      backgroundColor: "backgroundColor".includes(appSettings)
-        ? appSettings["backgroundColor"]
-        : "#FFF",
       color: "foregroundColor".includes(appSettings)
         ? appSettings["foregroundColor"]
         : "#FFF",
@@ -26,6 +23,7 @@ const containers = (appSettings) =>
       width: Dimensions.get("window").width,
       alignItems: "center",
       justifyContent: "center",
+      
     },
 
     formBox: {
