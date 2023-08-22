@@ -27,7 +27,6 @@ export default function PrincipalClim({ navigation }) {
   const santoDomin = SantoD?.main?.temp.toFixed(0);
   const cuenca = Cuenca?.main?.temp.toFixed(0);
   const ibarra = Ibarra?.main?.temp.toFixed(0);
-  const [dataSend, setDataSend] = useState({});
   return (
     <NativeBaseProvider>
       <Container>
@@ -38,8 +37,10 @@ export default function PrincipalClim({ navigation }) {
               <VStack space={4}>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(esmeraldas);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: esmeraldas,
+                      nameCity: "Esmeraldas",
+                    });
                   }}
                 >
                   <Step
@@ -60,8 +61,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(Quito);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: Quito,
+                      nameCity: "Quito",
+                    });
                   }}
                 >
                   <Step
@@ -82,8 +85,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(Manta);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: Manta,
+                      nameCity: "Manta",
+                    });
                   }}
                 >
                   <Step
@@ -104,8 +109,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(Guayaquill);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: Guayaquill,
+                      nameCity: "Guayaquil",
+                    });
                   }}
                 >
                   <Step
@@ -126,8 +133,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(SantoD);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: SantoD,
+                      nameCity: "Santo Domingo",
+                    });
                   }}
                 >
                   <Step
@@ -148,8 +157,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(Cuenca);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: Cuenca,
+                      nameCity: "Cuenca",
+                    });
                   }}
                 >
                   <Step
@@ -170,8 +181,10 @@ export default function PrincipalClim({ navigation }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    setDataSend(Ibarra);
-                    navigation.navigate("DetallesClima", dataSend);
+                    navigation.navigate("DetallesClima", {
+                      dataCity: Ibarra,
+                      nameCity: "Ibarra",
+                    });
                   }}
                 >
                   <Step
