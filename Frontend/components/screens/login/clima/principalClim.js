@@ -43,14 +43,16 @@ export default function PrincipalClim({ navigation }) {
           />
           <Center w="64" h="20" />
           <ScrollView style={{ flex: 1 }}>
-            <View style={styles.stepsContainer}>
+            <View>
               <VStack space={4}>
                 <TouchableOpacity
-                  style={{ backgroundColor: "transparent" }}
+                  bg="rgba(0, 0, 0, 0.2)"
                   onPress={() => {
                     navigation.navigate("DetallesClima", {
                       dataCity: esmeraldas,
                       nameCity: "Esmeraldas",
+                      long: "-79.6833",
+                      lat: "0.9333",
                     });
                   }}
                 >
@@ -75,6 +77,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: Quito,
                       nameCity: "Quito",
+                      long: "-78.5249",
+                      lat: "-0.2299",
                     });
                   }}
                 >
@@ -99,6 +103,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: Manta,
                       nameCity: "Manta",
+                      long: "-80.7333",
+                      lat: "-0.95",
                     });
                   }}
                 >
@@ -123,6 +129,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: Guayaquill,
                       nameCity: "Guayaquil",
+                      long: "-79.9",
+                      lat: "-2.1667",
                     });
                   }}
                 >
@@ -147,6 +155,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: SantoD,
                       nameCity: "Santo Domingo",
+                      long: "-79.15",
+                      lat: "-0.25",
                     });
                   }}
                 >
@@ -171,6 +181,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: Cuenca,
                       nameCity: "Cuenca",
+                      long: "-78.9833",
+                      lat: "-2.8833",
                     });
                   }}
                 >
@@ -195,6 +207,8 @@ export default function PrincipalClim({ navigation }) {
                     navigation.navigate("DetallesClima", {
                       dataCity: Ibarra,
                       nameCity: "Ibarra",
+                      long: "-78.1167",
+                      lat: "0.35",
                     });
                   }}
                 >

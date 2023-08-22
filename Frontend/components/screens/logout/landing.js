@@ -5,7 +5,7 @@ import containers from "../../styles/containers.js";
 import fonts from "../../styles/fonts.js";
 import buttons from "../../styles/buttons.js";
 import margins from "../../styles/margins.js";
-import { Box, Center, Image, NativeBaseProvider } from "native-base";
+import { Center, Image, NativeBaseProvider } from "native-base";
 
 function Landing({ navigation, route, props }) {
   const globalContext = useContext(Context);
