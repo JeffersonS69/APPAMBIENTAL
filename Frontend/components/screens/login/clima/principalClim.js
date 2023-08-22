@@ -1,5 +1,4 @@
 import {
-  Box,
   Center,
   Container,
   NativeBaseProvider,
@@ -9,13 +8,13 @@ import {
   Image,
   ScrollView,
 } from "native-base";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../../globalContext/globalContext";
 import containers from "../../../styles/containers";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { useClimas } from "./hooks/useClimas";
 
-export default function PrincipalClim() {
+export default function PrincipalClim({ navigation }) {
   const globalContext = useContext(Context);
   const { appSettings } = globalContext;
   const { esmeraldas, Quito, Manta, Guayaquill, SantoD, Cuenca, Ibarra } =
@@ -28,16 +27,21 @@ export default function PrincipalClim() {
   const santoDomin = SantoD?.main?.temp.toFixed(0);
   const cuenca = Cuenca?.main?.temp.toFixed(0);
   const ibarra = Ibarra?.main?.temp.toFixed(0);
-
+  const [dataSend, setDataSend] = useState({});
   return (
     <NativeBaseProvider>
       <Container>
         <View style={containers(appSettings).outerPage}>
-          <Center w="64" h="20"></Center>
+          <Center w="64" h="20" />
           <ScrollView style={{ flex: 1 }}>
             <View style={styles.stepsContainer}>
               <VStack space={4}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(esmeraldas);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Esmeraldas"
                     description={
@@ -54,7 +58,12 @@ export default function PrincipalClim() {
                     image="https://www.lahora.com.ec/wp-content/uploads/2022/08/Bandera-e1659677333793.jpg"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(Quito);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Quito"
                     description={
@@ -71,7 +80,12 @@ export default function PrincipalClim() {
                     image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Quito.svg/2560px-Flag_of_Quito.svg.png"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(Manta);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Manta"
                     description={
@@ -88,7 +102,12 @@ export default function PrincipalClim() {
                     image="https://ec.viajandox.com/uploads/Bandera%20de%20Manta_1.jpg"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(Guayaquill);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Guayaquil"
                     description={
@@ -105,7 +124,12 @@ export default function PrincipalClim() {
                     image="https://static.magflags.net/media/catalog/product/cache/75170699113cf9b1963820a3ea1bab40/E/C/EC-prov_ncia_guayas_1.png"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(SantoD);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Santo Domingo"
                     description={
@@ -122,7 +146,12 @@ export default function PrincipalClim() {
                     image="https://geopoliticaybanderas.files.wordpress.com/2021/02/chimborazo.png"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(Cuenca);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Cuenca"
                     description={
@@ -139,7 +168,12 @@ export default function PrincipalClim() {
                     image="https://elyex.com/wp-content/uploads/2022/08/bandera-cuenca-ecuador.webp"
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setDataSend(Ibarra);
+                    navigation.navigate("DetallesClima", dataSend);
+                  }}
+                >
                   <Step
                     title="Ibarra"
                     description={
