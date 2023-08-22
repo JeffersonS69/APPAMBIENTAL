@@ -1,89 +1,101 @@
-
-import React from "react";
+import React, { useContext } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Center, Image, NativeBaseProvider, ScrollView } from "native-base";
+import containers from "../../../../styles/containers";
+import { Context } from "../../../../globalContext/globalContext";
 function Advice({ navigation }) {
+  const globalContext = useContext(Context);
+  const { appSettings } = globalContext;
   return (
     <NativeBaseProvider>
-      <View style={styles.container}>
-        <Image
-          alt="fondo"
-          resizeMode="cover"
-          position="absolute"
-          width="100%"
-          height={"100%"}
-          source={{
-            uri: "https://i.ibb.co/rf60j9t/bg2.jpg",
-          }}
-        />
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Center style={styles.logoContainer}>
-            <View style={styles.logoWrapper}>
+      <View style={containers(appSettings).outerPagePP}>
+        <View style={styles.container}>
+          <Image
+            alt="fondo"
+            resizeMode="cover"
+            position="absolute"
+            width="100%"
+            height={"100%"}
+            source={{
+              uri: "https://i.ibb.co/rf60j9t/bg2.jpg",
+            }}
+          />
+          <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <Center style={styles.logoContainer}>
+              <View style={styles.logoWrapper}>
+                <Image
+                  alt="logo"
+                  style={styles.logoImage}
+                  source={{
+                    uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
+                  }}
+                />
+                <Text style={styles.pageTitle}>
+                  QUE HACER DURANTE UNA CATASTROFE NATURAL
+                </Text>
+              </View>
+            </Center>
+            <View style={styles.backgroundImageContainer}></View>
+
+            <View style={styles.stepsContainer}>
+              <Step
+                number="1"
+                title="INVESTIGA"
+                description={
+                  <>
+                    Familiarízate con los riesgos que podrían ocurrir en tu
+                    comunidad.
+                  </>
+                }
+              />
+              <Step
+                number="2"
+                title="PREPARA TU HOGAR"
+                description={
+                  <>
+                    Coordina con tu familia sobre el protocolo de emergencia.
+                    Ten a mano los números importantes.
+                  </>
+                }
+              />
+              <Step
+                number="3"
+                title="HAZ UN KIT DE EMERGENCIA"
+                description={
+                  <>
+                    Debería contener comida, agua y suministros para un mínimo
+                    de 72 horas.
+                  </>
+                }
+              />
+              <Step
+                number="4"
+                title="MANTENTE INFORMADO"
+                description={
+                  <>
+                    Contacta con tu gobierno local para saber cómo informará de
+                    las alertas e instrucciones durante una emergencia.
+                  </>
+                }
+              />
+            </View>
+            <TouchableOpacity
+              style={styles.redirectImageContainer}
+              onPress={() => navigation.navigate("Tidings")}
+            >
               <Image
-                alt="logo"
-                style={styles.logoImage}
+                alt="flecha"
+                resizeMode="cover"
+                position="absolute"
+                width="100"
+                height={"100%"}
                 source={{
-                  uri: "https://cdn-icons-png.flaticon.com/512/6683/6683592.png",
+                  uri: "https://i.ibb.co/vJGjJtB/next-97612-960-720.webp",
                 }}
               />
-              <Text style={styles.pageTitle}>QUE HACER DURANTE UNA CATASTROFE NATURAL</Text>
-            </View>
-          </Center>
-          <View style={styles.backgroundImageContainer}>
-          </View>
-
-          <View style={styles.stepsContainer}>
-            <Step
-              number="1"
-              title="INVESTIGA"
-              description={
-                <>
-                  Familiarízate con los riesgos que podrían ocurrir en tu comunidad.
-                </>
-              }
-            />
-            <Step
-              number="2"
-              title="PREPARA TU HOGAR"
-              description={
-                <>
-                  Coordina con tu familia sobre el protocolo de emergencia. Ten a mano los números importantes.
-                </>
-              }
-            />
-            <Step
-              number="3"
-              title="HAZ UN KIT DE EMERGENCIA"
-              description={
-                <>
-                  Debería contener comida, agua y suministros para un mínimo de 72 horas.
-                </>
-              }
-            />
-            <Step
-              number="4"
-              title="MANTENTE INFORMADO"
-              description={
-                <>
-                  Contacta con tu gobierno local para saber cómo informará de las alertas e instrucciones durante una emergencia.
-                </>
-              }
-            />
-          </View>
-          <TouchableOpacity style={styles.redirectImageContainer} onPress={() => navigation.navigate("Tidings")}>
-
-            <Image
-              alt="flecha"
-              resizeMode="cover"
-              position="absolute"
-              width="100"
-              height={"100%"}
-              source={{
-                uri: "https://i.ibb.co/vJGjJtB/next-97612-960-720.webp",
-              }}
-            />
-          </TouchableOpacity>
-        </ScrollView>
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
       </View>
     </NativeBaseProvider>
   );
@@ -102,7 +114,6 @@ function Step({ number, title, description }) {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -149,8 +160,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "white", // Step number text color
-
-
   },
   stepContent: {
     flex: 1,
@@ -160,22 +169,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "black", // Step title text color
     marginTop: 5,
-
   },
   stepDescription: {
     fontSize: 16,
     marginTop: 4,
     color: "black", // Step description text color
-    marginBottom: 5
+    marginBottom: 5,
   },
   pageTitle: {
-    fontSize: 28,
+    fontSize: 19,
     textAlign: "center",
     fontWeight: "bold",
     color: "black",
     marginTop: 1, // Adding some space at the top
     marginBottom: 16, // Adding some space at the bottom
-
   },
   logoContainer: {
     justifyContent: "center",
@@ -194,7 +201,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 30,
-    backgroundColor: 'transparent', // Usa 'rgba(255, 255, 255, 0)' para fondo transparente
+    backgroundColor: "transparent", // Usa 'rgba(255, 255, 255, 0)' para fondo transparente
   },
   optionBackground: {
     backgroundColor: "transparent", // Verde lima semitransparente

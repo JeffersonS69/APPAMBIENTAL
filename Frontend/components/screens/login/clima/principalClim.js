@@ -31,11 +31,22 @@ export default function PrincipalClim({ navigation }) {
     <NativeBaseProvider>
       <Container>
         <View style={containers(appSettings).outerPage}>
+          <Image
+            alt="fondo"
+            resizeMode="cover"
+            position="absolute"
+            width="100%"
+            height={"100%"}
+            source={{
+              uri: "https://us.123rf.com/450wm/getgg/getgg1902/getgg190200282/116692176-dise%C3%B1o-de-pantalla-abstracto-para-aplicaci%C3%B3n-m%C3%B3vil-fondo-degradado-de-color-suave-concepto-de.jpg?ver=6",
+            }}
+          />
           <Center w="64" h="20" />
           <ScrollView style={{ flex: 1 }}>
             <View style={styles.stepsContainer}>
               <VStack space={4}>
                 <TouchableOpacity
+                  style={{ backgroundColor: "transparent" }}
                   onPress={() => {
                     navigation.navigate("DetallesClima", {
                       dataCity: esmeraldas,
@@ -237,23 +248,13 @@ function Step({ number, title, description, image }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#89D5C9",
-  },
-  scrollContainer: {
-    flexGrow: 1,
-    padding: 16,
-  },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginVertical: 16,
     color: "black", // Text color
   },
-  stepsContainer: {
-    marginVertical: 16,
-  },
+
   stepContainerR: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -276,7 +277,6 @@ const styles = StyleSheet.create({
   },
 
   stepNumberContainer: {
-    backgroundColor: "#A8DF8E", // Turquoise background color for step number
     borderRadius: 50,
     width: 36,
     height: 36,
@@ -290,7 +290,6 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black", // Step number text color
   },
   stepContent: {
     flex: 1,
@@ -298,34 +297,17 @@ const styles = StyleSheet.create({
   stepTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black", // Step title text color
-    marginTop: 5,
-  },
-  stepTitle2: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "black", // Step title text color
-    textAlign: "right",
     marginTop: 5,
   },
   stepDescription: {
     fontSize: 16,
     marginTop: 4,
-    color: "black", // Step description text color
-    marginBottom: 5,
-  },
-  stepDescription2: {
-    fontSize: 16,
-    marginTop: 4,
-    color: "black", // Step description text color
-    textAlign: "right",
     marginBottom: 5,
   },
   pageTitle: {
     fontSize: 28,
     textAlign: "center",
     fontWeight: "bold",
-    color: "black",
     marginTop: 24, // Adding some space at the top
     marginBottom: 16, // Adding some space at the bottom
   },
