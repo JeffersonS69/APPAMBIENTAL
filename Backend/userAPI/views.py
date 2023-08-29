@@ -47,7 +47,7 @@ class UserView(APIView):
             )
 
             try:
-                sg = SendGridAPIClient("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")
+                sg = SendGridAPIClient("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")
                 response = sg.send(message)
                 return Response(user_serializer.data, status=200)
             except Exception as e:
